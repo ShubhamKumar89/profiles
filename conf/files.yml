@@ -1,5 +1,6 @@
-# SPDX-License-Identifier: Apache-2.0
-# Copyright (C) 2019-2021 Intel Corporation
+---
+# Copyright (C) 2019 Intel Corporation
+# SPDX-License-Identifier: BSD-3-Clause
 
 # Note that all fields for all items must be filled in, unless you omit
 # the entire section. For example, you cannot omit 'type' from an object in
@@ -28,12 +29,12 @@ general_files:
 # Items in 's3_files' will be retrieved using aws-cli.
 # These files will also be accessible at http://@@EDGEBUILDER_IP@@/files/*
 s3_files:
-  - aws_access_key: ""
-    aws_secret_key: ""
-    aws_region: ""
-    bucket: ""
-    object: ""
-    destination_file: ""
+  - aws_access_key: 
+    aws_secret_key: 
+    aws_region: 
+    bucket: 
+    object: 
+    destination_file: 
 
 # These files are retrieved from the public Docker hub.
 # Currently these files can go anywhere.
@@ -45,49 +46,49 @@ public_docker_images:
 # These files are retrieved from a private AWS ECR.
 # Currently these files can go anywhere.
 private_docker_aws_images:
-  - image: ""
-    docker_registry: ""
-    aws_access_key: ""
-    aws_secret_key: ""
-    aws_region: ""
-    aws_registry: ""
-    tag: ""
-    destination_file: ""
+  - image: 
+    docker_registry: 
+    aws_access_key: 
+    aws_secret_key: 
+    aws_region: 
+    aws_registry: 
+    tag: 
+    destination_file: 
 
 # These files are retrieved from a Docker registry.
 # Currently these files can go anywhere.
 private_docker_registry_images:
-  - image: esp:${{ steps.date.outputs.date }}
-    tag: ${{secrets.DOCKER_USERNAME}}/esp:${{ steps.date.outputs.date }}
-    destination_file: esp.tar.gz
-    docker_registry: hub.docker.com
-    docker_username: ${{secrets.DOCKER_USERNAME}}
-    docker_password: ${{secrets.DOCKER_PASSWORD}}
+  - image: 
+    tag: 
+    destination_file: 
+    docker_registry: 
+    docker_username: 
+    docker_password: 
 
 # Items in 'git_repos' will be retrieved using git.
 # These files will be accessible at http://mirror:mirror@{RNI_IP}:3003/mirror/{PROFILE_NAME}___{REPO_NAME}/raw/branch/master/*
 # Example URL with below values: http://mirror:mirror@192.168.1.10:3003/mirror/Clear-Linux___rni/raw/branch/master/*
 git_repos:
-  - git_url: https://github.com/intel/RetailWorkloadOrchestrator.git
+  - git_url: 
     # git_branch will default to master if left blank
-    git_branch: master
+    git_branch: 
     # git_username is optional
-    git_username: ${{secrets.GIT_USERNAME}}
+    git_username: 
     # git_passowrd_or_token is optional
-    git_passowrd_or_token: ${{secrets.GIT_TOKEN}}
+    git_passowrd_or_token: 
     # custom_git_arguments will default to "--depth=1" if left blank
-    custom_git_arguments: --depth=1
+    custom_git_arguments: 
     # mirror_repo_name will default to repo name if left blank. The only characters allowed are a-z, A-Z, 0-9, - and _
-    mirror_repo_name: rwo
+    mirror_repo_name: 
 
 # Items in 'build' will run the 'execute' line inside the container.  The results of the build process should be saved at /opt/output inside the container and these files will be accessible at http://{RNI_IP}/files/{PROFILE_NAME}/build/*
 # Example URL with below values: http://192.168.1.10/files/Clear-Linux___rni/build/*
 build:
   # Identify the container to run the build process in
-  - container:
+  - container: 
     # Entrypoint of override, this is optional
-    entrypoint:
+    entrypoint: 
     # Interrupter to use for execution
-    cmd:
+    cmd: 
     # Script to run from the /build/ folder
-    execute:
+    execute: 
