@@ -14,9 +14,12 @@
 # Both a 'kernel' and 'initrd' must be specified if you plan to use your own.
 # Otherwise, the utility OS will be used.
 base_os_files:
-  - url: https://releases.ubuntu.com/focal/ubuntu-20.04.6-live-server-amd64.iso
-    type: iso
-    filename: ubuntu-20.04.6-live-server-amd64.iso
+  - url: https://github.com/rancher/os/releases/download/v1.5.1/vmlinuz
+    type: kernel
+    filename: vmlinuz
+  - url: https://github.com/rancher/os/releases/download/v1.5.1/initrd
+    type: initrd
+    filename: initrd
 
 # Items in 'general_files' will be retrieved using wget. Tokens are passed in
 # as headers. These files will be accessible at http://@@EDGEBUILDER_IP@@/files/*
